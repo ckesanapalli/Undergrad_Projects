@@ -1,0 +1,118 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Shaastra.Lectures.lecturedetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:slToolkit ="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:c4f="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:Converters="clr-namespace:Coding4Fun.Toolkit.Controls.Converters;assembly=Coding4Fun.Toolkit.Controls"
+
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="Black"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideDownFadeIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideDownFadeOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        
+        <phone:Pivot>
+            <phone:PivotItem>
+                <phone:PivotItem.Header>
+                    <TextBlock FontSize="40" Text="about" Style="{StaticResource PanoramaItemHeaderTextStyle}" Foreground="Black" FontFamily="Segoe WP Light"/>
+                </phone:PivotItem.Header>
+                <Grid Margin="-6,-22,-6,0">
+
+                    <Rectangle Stroke="Black" Margin="5" RadiusX="0" RadiusY="0" Opacity="0.3"/>
+                    <Rectangle Stroke="Black" Margin="4" RadiusX="0" RadiusY="0" Opacity="0.25"/>
+                    <Rectangle Stroke="Black" Margin="3" RadiusX="0" RadiusY="0" Opacity="0.2"/>
+                    <Rectangle Stroke="Black" Margin="2" RadiusX="0" RadiusY="0" Opacity="0.15"/>
+                    <Rectangle Stroke="Black" Margin="1" RadiusX="0" RadiusY="0" Opacity="0.1"/>
+                    <Rectangle Stroke="Black" Margin="0" RadiusX="12" RadiusY="12" Opacity="0.05"/>
+                    <ScrollViewer Margin="0,0,0,10" Height="707">
+                        <StackPanel Margin="0,0,0,0">
+                            <TextBlock Margin="10,0,0,0" TextWrapping="Wrap" Style="{StaticResource LongListSelectorGroupHeaderLetterTileStyle}" x:Name="personName"  Text="Stephen Wolfram" FontSize="47" Foreground="DarkSlateGray" FontFamily="Segoe WP"/>
+                            <Image CacheMode="BitmapCache" Margin="0,10,0,10" Source="tile336.png" x:Name="profilePic" MaxHeight="400" MaxWidth="442"/>
+                            <RichTextBox x:Name="descbox" TextAlignment="Justify" Margin="0,0,0,10" Height="Auto" Foreground="Black" FontFamily="Segoe WP" TextWrapping="Wrap" FontSize="23">
+                                <Paragraph TextAlignment="Center">
+                                    <LineBreak/>We are gathering info.. A little patience would be cute! Take a deep breath!
+                                </Paragraph>
+                            </RichTextBox>
+                        </StackPanel>
+
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+
+            <phone:PivotItem>
+                <phone:PivotItem.Header>
+                    <TextBlock FontSize="40" Text="details" Style="{StaticResource PanoramaItemHeaderTextStyle}" Foreground="Black" FontFamily="Segoe WP Light"/>
+                </phone:PivotItem.Header>
+                <Grid Margin="-6,-22,-6,0">
+                    <Rectangle Stroke="Black" Margin="5" RadiusX="0" RadiusY="0" Opacity="0.3"/>
+                    <Rectangle Stroke="Black" Margin="4" RadiusX="0" RadiusY="0" Opacity="0.25"/>
+                    <Rectangle Stroke="Black" Margin="3" RadiusX="0" RadiusY="0" Opacity="0.2"/>
+                    <Rectangle Stroke="Black" Margin="2" RadiusX="0" RadiusY="0" Opacity="0.15"/>
+                    <Rectangle Stroke="Black" Margin="1" RadiusX="0" RadiusY="0" Opacity="0.1"/>
+                    <Rectangle Stroke="Black" Margin="0" RadiusX="12" RadiusY="12" Opacity="0.05"/>
+                    <ScrollViewer Margin="5,5,5,0" Height="730">
+                        <StackPanel>
+
+                            <StackPanel HorizontalAlignment="Center" toolkit:TiltEffect.IsTiltEnabled="True" VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock HorizontalAlignment="Center" Width="57" FontSize="60" Foreground="LightGray" FontFamily="Segoe WP" >at</TextBlock>
+                                <TextBlock x:Name="eventLocation" HorizontalAlignment="Center" Foreground="Black" TextWrapping="Wrap" FontSize="30">Student Facilities Centre (SFC)</TextBlock>
+                                <Button x:Name="glonass" Click="glonass_Click" Foreground="DarkSlateBlue" BorderBrush="LightGray" BorderThickness="2" FontSize="20" Content="Take me there" Width="186"/>
+                            </StackPanel>
+
+                            <StackPanel VerticalAlignment="Center" Orientation="Vertical" HorizontalAlignment="Center" toolkit:TiltEffect.IsTiltEnabled="True">
+                                <TextBlock HorizontalAlignment="Center" FontSize="60" Foreground="LightGray" FontFamily="Segoe WP">on</TextBlock>
+                                <TextBlock x:Name="eventDate" HorizontalAlignment="Center" Foreground="Black" FontSize="30">15th January 2015</TextBlock>
+                                <TextBlock x:Name="eventTime" HorizontalAlignment="Center" Foreground="Black" FontSize="30">1800 hrs</TextBlock>
+                                <Button x:Name="notifier" Click="notifier_Click" Foreground="DarkSlateBlue" BorderBrush="LightGray" BorderThickness="2" FontSize="20" Width="181">Remind me</Button>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+        <c4f:ProgressOverlay Canvas.ZIndex="1000" Name="progressOverlay"
+             Opacity="1" d:IsLocked="True" d:IsHidden="False">
+            <c4f:ProgressOverlay.Content>
+                <StackPanel>
+                    <slToolkit:PerformanceProgressBar Foreground="White" IsIndeterminate="True" />
+                    <TextBlock Foreground="White" HorizontalAlignment="Center">Moving stuff around..</TextBlock>
+                </StackPanel>
+            </c4f:ProgressOverlay.Content>
+        </c4f:ProgressOverlay>
+
+    </Grid>
+</phone:PhoneApplicationPage>

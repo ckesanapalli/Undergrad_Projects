@@ -1,0 +1,7 @@
+Log 1: 11:15 AM 1/31/2017 (pending)
+Error in the InvMag_ matrix
+- Mag_ matrix values are small, which make InvMag_ large (very large). 
+- Resulting in the large values in sigma matrix
+
+
+

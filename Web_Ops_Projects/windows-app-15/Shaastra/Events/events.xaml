@@ -1,0 +1,463 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Shaastra.Events.events"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideDownFadeIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideUpFadeOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideDownFadeOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Key="aero_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="AeroTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Aero" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i1_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Aero_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="db_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DBTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DB" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i2_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DB_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="code_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="CodeTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Code" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i3_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Code_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="iq_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQ" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i4_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQ_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="elec_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="ElecTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Elec" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i5_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Elec_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="fs_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FSTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FS" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i6_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FS_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="sl_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SLTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SL" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i7_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SL_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="ws_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WSTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WS" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i8_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WS_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="shows_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="ShowsTrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Shows" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i9_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Shows_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="be_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BETrans" Storyboard.TargetProperty="X" From="358" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BE" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i10_Trans" Storyboard.TargetProperty="X" From="-120" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BE_img" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+
+        <Storyboard x:Key="Button_dis">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Aero_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DB_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Code_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQ_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Elec_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FS_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SL_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WS_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Shows_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BE_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+        </Storyboard>
+
+        <Storyboard x:Key="Button_app">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Aero_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DB_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Code_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQ_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Elec_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FS_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SL_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WS_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Shows_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BE_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+        </Storyboard>
+
+        <Storyboard x:Key="aero_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="AeroTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Aero" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i1_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Aero_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="db_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DBTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DB" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i2_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="DB_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="code_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="CodeTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Code" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i3_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Code_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="iq_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQ" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i4_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="IQ_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="elec_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="ElecTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Elec" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i5_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Elec_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="fs_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FSTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FS" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i6_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="FS_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="sl_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SLTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SL" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i7_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="SL_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="ws_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WSTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WS" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i8_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="WS_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="shows_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="ShowsTrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Shows" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i9_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Shows_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="be_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BETrans" Storyboard.TargetProperty="X" From="0" To="358" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BE" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" />
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="i10_Trans" Storyboard.TargetProperty="X" From="0" To="-120" Duration="0:0:0.5"/>
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="BE_img" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+
+        <Storyboard x:Key="back_in">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Back_Button" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
+        </Storyboard>
+        <Storyboard x:Key="back_out">
+            <DoubleAnimation BeginTime="0:0:0.1" Storyboard.TargetName="Back_Button" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="SHAASTRA" Foreground="White" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="events" Foreground="White" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,12,0,12">
+            <ScrollViewer>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Aero.png" Height="90" x:Name="aero_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Aerofest" Foreground="Red" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="Aero_Button" Click="Aero_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/BE.png" Height="90" x:Name="be_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="B-Events" Foreground="Yellow" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="BE_Button" Click="BE_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Code.png" Height="90" x:Name="code_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Coding" Foreground="Green" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="Code_Button" Click="Code_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/FS.png" Height="90" x:Name="fs_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Department Flagship" Foreground="Purple" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="FS_Button" Click="FS_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/DB.png" Height="90" x:Name="db_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Design and Build" Foreground="Orange" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="DB_Button" Click="DB_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Elec.png" Height="90" x:Name="elec_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Electronics" Foreground="Blue" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="Elec_Button" Click="Elec_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/IQ.png" Height="90" x:Name="inv_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Involve" Foreground="Turquoise" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="IQ_Button" Click="IQ_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/IQ.png" Height="90" x:Name="qu_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Quizzing" Foreground="Brown" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="Shows_Button" Click="Shows_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/SL.png" Height="90" x:Name="sl_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Spotlight" Foreground="Lime" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="SL_Button" Click="SL_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/WS.png" Height="90" x:Name="ws_icon" Width="90" Stretch="Uniform" Opacity="1"/>
+                        <Button Content="Workshop" Foreground="Gold" FontSize="36" BorderThickness="0" Background="Transparent" FontFamily="Comic Sans MS" x:Name="WS_Button" Click="WS_Button_Click" Height="90">
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+            <Button x:Name="Back_Button" BorderThickness="0" Click="Back_Button_Click" Background="Transparent" Opacity="0" Height="90" Width="90" Margin="12,500,370,12">
+                <Border>
+                    <Image Source="Assets/Back.png"/>
+                </Border>
+            </Button>
+            <Image x:Name="Aero_img" Source="Assets/Aero.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i1_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="DB_img" Source="Assets/DB.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i2_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Code_img" Source="Assets/Code.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i3_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="IQ_img" Source="Assets/IQ.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i4_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Elec_img" Source="Assets/Elec.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i5_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="FS_img" Source="Assets/FS.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i6_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="SL_img" Source="Assets/SL.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i7_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="WS_img" Source="Assets/WS.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i8_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="Shows_img" Source="Assets/Shows.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i9_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="BE_img" Source="Assets/BE.png" Opacity="0" Height="100" Width="100" Margin="10,10,359,502">
+                <Image.RenderTransform>
+                    <TranslateTransform x:Name="i10_Trans" X="-120"/>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        
+        <Grid x:Name="Aero" Opacity="0" Background="Transparent" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="AeroTrans" X="358"/>
+            </Grid.RenderTransform>
+           <!-- <ScrollViewer>
+                <StackPanel>
+                    <Button Content="Aerobotics" Foreground="Red" FontSize="32" Background="Transparent" Height="80" x:Name="AB" Click="AB_Click"  BorderThickness="3" BorderBrush="Red"/>
+                    <Button Content="Airshow" Foreground="Red" FontSize="32" Background="Transparent" Height="80" x:Name="AS" Click="AS_Click" BorderThickness="3" BorderBrush="Red"/>
+                    <Button Content="Wright Design" Foreground="Red" FontSize="32" Background="Transparent" Height="80" x:Name="WD" Click="WD_Click" BorderThickness="3" BorderBrush="Red"/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="DB" Opacity="0" Background="Orange" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="DBTrans" X="358"/>
+            </Grid.RenderTransform>
+          <!--  <ScrollViewer>
+                <StackPanel>
+                    <Button Content="Autonomous Robotics" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="AR" Click="AR_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Contraptions" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="CP" Click="CP_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Fire and Ice" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="FI" Click="FI_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Junkyard Wars" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="JW" Click="JW_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Manual Robotics" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="MR" Click="MR_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Master Builder" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="MB" Click="MB_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Robo Oceana" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="RO" Click="RO_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Robowars" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="RW" Click="RW_Click" BorderThickness="3" BorderBrush="Orange"/>
+                    <Button Content="Ultimate Engineers" Foreground="Orange" FontSize="32" Background="Transparent" Height="80" x:Name="UE" Click="UE_Click" BorderThickness="3" BorderBrush="Orange"/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="Code" Opacity="0" Background="Green" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="CodeTrans" X="358"/>
+            </Grid.RenderTransform>
+           <!-- <ScrollViewer>
+                <StackPanel>
+                    <Button Content="Big Data Challenge" Foreground="Green" FontSize="32" Background="Transparent" Height="80" x:Name="BDC" Click="BDC_Click" BorderThickness="3" BorderBrush="Green"/>
+                    <Button Content="Online Programming Contest" Foreground="Green" FontSize="32" Background="Transparent" Height="80" x:Name="OPC" Click="OPC_Click" BorderThickness="3" BorderBrush="Green"/>
+                    <Button Content="Reverse Coding" Foreground="Green" FontSize="32" Background="Transparent" Height="80" x:Name="RC" Click="RC_Click" BorderThickness="3" BorderBrush="Green"/>
+                    <Button Content="Triathlon" Foreground="Green" FontSize="32" Background="Transparent" Height="80" x:Name="TA" Click="TA_Click" BorderThickness="3" BorderBrush="Green"/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="IQ" Opacity="0" Background="Turquoise" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="IQTrans" X="358"/>
+            </Grid.RenderTransform>
+           <!-- <ScrollViewer>
+                <StackPanel>
+                    <Button Content="ProjectX" Foreground="Turquoise" FontSize="32" Background="Transparent" Height="80" x:Name="PX" Click="PX_Click" BorderThickness="3" BorderBrush="Turquoise"/>
+                    <Button Content="Puzzle Champ" Foreground="Turquoise" FontSize="32" Background="Transparent" Height="80" x:Name="PC" Click="PC_Click" BorderThickness="3" BorderBrush="Turquoise"/>
+                    <Button Content="Shaastra Cube Open" Foreground="Turquoise" FontSize="32" Background="Transparent" Height="80" x:Name="SCO" Click="SCO_Click" BorderThickness="3" BorderBrush="Turquoise"/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="Elec" Opacity="0" Background="Blue" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="ElecTrans" X="358"/>
+            </Grid.RenderTransform>
+          <!--  <ScrollViewer>
+                <StackPanel>
+                    <Button Content="Arduino Programmers' Challenge" Foreground="Blue" FontSize="32" Background="Transparent" Height="80" x:Name="APC" Click="APC_Click" BorderThickness="3" BorderBrush="Blue"/>
+                    <Button Content="Fun With Oscilloscopes" Foreground="Blue" FontSize="32" Background="Transparent" Height="80" x:Name="FWO" Click="FWO_Click" BorderThickness="3" BorderBrush="Blue"/>
+                    <Button Content="PCB Design Workshop" Foreground="Blue" FontSize="32" Background="Transparent" Height="80" x:Name="PDW" Click="PDW_Click" BorderThickness="3" BorderBrush="Blue"/>
+                    <Button Content="Shaastra Circuit Design Challenge" Foreground="Blue" FontSize="32" Background="Transparent" Height="80" x:Name="SCDC" Click="SCDC_Click" BorderThickness="3" BorderBrush="Blue"/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="FS" Opacity="0" Background="Purple" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="FSTrans" X="358"/>
+            </Grid.RenderTransform>
+           <!-- <ScrollViewer>
+                <StackPanel>
+                    <Button Content="Desmod" Foreground="Purple" FontSize="32" Background="Transparent" Height="80" x:Name="DM" Click="DM_Click" BorderThickness="3" BorderBrush="Purple"/>
+                    <Button Content="Forensics" Foreground="Purple" FontSize="32" Background="Transparent" Height="80" x:Name="FN" Click="FN_Click" BorderThickness="3" BorderBrush="Purple"/>
+                    <Button Content="Master Builder" Foreground="Purple" FontSize="32" Background="Transparent" Height="80" x:Name="MD" Click="MB_Click" BorderThickness="3" BorderBrush="Purple"/>
+                    <Button Content="Robo Oceana" Foreground="Purple" FontSize="32" Background="Transparent" Height="80" x:Name="RB" Click="RO_Click" BorderThickness="3" BorderBrush="Purple"/>
+                    <Button Content="Shaastra Circuit Design Challenge" Foreground="Purple" FontSize="32" Background="Transparent" Height="80" x:Name="SCD" Click="SCDC_Click" BorderThickness="3" BorderBrush="Purple"/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="SL" Opacity="0" Background="Lime" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="SLTrans" X="358"/>
+            </Grid.RenderTransform>
+          <!--  <ScrollViewer>
+                <StackPanel>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="WS" Opacity="0" Background="Gold" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="WSTrans" X="358"/>
+            </Grid.RenderTransform>
+         <!--   <ScrollViewer>
+                <StackPanel>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="Shows" Opacity="0" Background="Brown" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="ShowsTrans" X="358"/>
+            </Grid.RenderTransform>
+          <!--  <ScrollViewer>
+                <StackPanel>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+        <Grid x:Name="BE" Opacity="0" Background="Yellow" Grid.Row="1" Margin="130,12,12,12">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="BETrans" X="358"/>
+            </Grid.RenderTransform>
+           <!-- <ScrollViewer>
+                <StackPanel>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                    <Button Content="" Foreground="" FontSize="32" Background="Transparent" Height="80" x:Name="" Click="" BorderThickness="3" BorderBrush=""/>
+                </StackPanel>
+            </ScrollViewer> -->
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

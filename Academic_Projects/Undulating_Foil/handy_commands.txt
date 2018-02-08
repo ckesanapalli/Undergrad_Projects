@@ -1,0 +1,56 @@
+
+// System Update
+sudo apt-get update
+
+// App Install
+sudo apt-get install gparted
+
+// Changes the ubuntu prompt to '$'
+export PS1='$> '
+
+// Change Directory
+cd 
+
+// List of content
+ls
+
+// Make a directory
+mkdir
+
+// Move Directory
+mv
+
+// Copy Directory
+cp
+
+// Print work directory
+pwd
+
+
+---------------// Git commands // --------------------------
+
+
+// Cloning 
+git clone https://na12b014@bitbucket.org/na12b014/flaptest.git
+
+	
+// Set up your local directory
+
+mkdir /path/to/your/project
+cd /path/to/your/project
+git init
+git remote add origin https://na12b014@bitbucket.org/na12b014/plotter.git
+
+// Create your first file, commit, and push
+
+echo "Kesanapalli Chaitanya Chowdary" >> contributors.txt
+git add contributors.txt
+git commit -m 'Initial commit with contributors'
+git push -u origin master
+
+
+
+
+
+
+

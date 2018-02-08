@@ -1,0 +1,76 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Shaastra.Shows.shows"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Landscape" Orientation="Landscape"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <phone:Pivot x:Name="mainPivot" SelectionChanged="mainPivot_SelectionChanged">
+
+            <phone:Pivot.HeaderTemplate>
+                <DataTemplate/>
+            </phone:Pivot.HeaderTemplate>
+
+            
+
+        <phone:PivotItem Margin="0" x:Name="pivOne">
+                <Grid>
+                    <Image x:Name="imgOne" Tap="img_Tap" CacheMode="BitMapCache" Stretch="UniformToFill">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="1" ScaleY="1" />
+                        </Image.RenderTransform>
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener PinchStarted="GestureListener_PinchStarted" PinchDelta="OnPinchDelta" DragDelta="Image_DragDelta" />
+                        </toolkit:GestureService.GestureListener>
+                    </Image>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Margin="0" x:Name="pivTwo">
+                <Grid>
+                    <Image x:Name="imgTwo" Tap="img_Tap" CacheMode="BitMapCache" Stretch="UniformToFill">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="1" ScaleY="1" />
+                        </Image.RenderTransform>
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener PinchStarted="GestureListener_PinchStarted" PinchDelta="OnPinchDelta" DragDelta="Image_DragDelta" />
+                        </toolkit:GestureService.GestureListener>
+                    </Image>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Margin="0" x:Name="pivThree">
+                <Grid>
+                    <Image x:Name="imgThree" Tap="img_Tap" CacheMode="BitMapCache" Stretch="UniformToFill">
+                        <Image.RenderTransform>
+                            <CompositeTransform ScaleX="1" ScaleY="1" />
+                        </Image.RenderTransform>
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener PinchStarted="GestureListener_PinchStarted" PinchDelta="OnPinchDelta" DragDelta="Image_DragDelta" />
+                        </toolkit:GestureService.GestureListener>
+                    </Image>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="mainPivotUp">
+            <DoubleAnimation Storyboard.TargetName="mainPivot" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.375"/>
+        </Storyboard>
+        <Storyboard x:Name="mainPivotDown">
+            <DoubleAnimation Storyboard.TargetName="mainPivot" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.375"/>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+</phone:PhoneApplicationPage>

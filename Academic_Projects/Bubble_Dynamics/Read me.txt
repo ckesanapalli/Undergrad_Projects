@@ -1,0 +1,5 @@
+Implementation of level-set method for solution of bubble in a cavity:
+
+The solution algorithm for the Navier-Stokes equations utilizes an explicit scheme for pressure
+and an implicit scheme for velocities, i.e., the velocity field at a new time step can be computed
+once the corresponding pressure is known.

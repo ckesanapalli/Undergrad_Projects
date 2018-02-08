@@ -1,0 +1,3 @@
+no:of divisions = 200
+panel length ~ 0.001
+Foil length = 1
