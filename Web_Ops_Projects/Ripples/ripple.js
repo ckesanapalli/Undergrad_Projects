@@ -26,7 +26,7 @@ var ampMultiplier = .3; //Amplitude of the waves. Further multipled by totalPoin
 var framerate = 30; //framerate in ms (1000/30 = 33.33 fps)
 var cWidth = 960; //Canvas Width will be changed to the width of the viewport
 var cHeight = 450; //Canvas Height
-var waterLevel = 400; //The y value of the surface of the water
+var waterLevel = 420; //The y value of the surface of the water
 var spreadAccelleration = 1.01; //Acceleration for point spread
 var spreadSpeed = 20; //Fixed speed for point spread
 
